@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/dp20">
+
+    <ImageView
+    android:id="@+id/imgStar1"
+    app:layout_constraintStart_toStartOf="parent"
+    android:src="@drawable/ic_star_active"
+    android:layout_width="@dimen/dp20"
+    android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/imgStar2"
+        app:layout_constraintStart_toEndOf="@+id/imgStar1"
+        android:src="@drawable/ic_star_active"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/imgStar3"
+        app:layout_constraintStart_toEndOf="@+id/imgStar2"
+        android:src="@drawable/ic_star_active"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/imgStar4"
+        app:layout_constraintStart_toEndOf="@+id/imgStar3"
+        android:src="@drawable/ic_star_active"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/imgStar5"
+        app:layout_constraintStart_toEndOf="@+id/imgStar4"
+        android:src="@drawable/ic_star_active"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="match_parent" />
+    <TextView
+        android:textSize="15sp"
+        android:text="(24)"
+        android:gravity="center"
+        android:textColor="@color/colorText2"
+        android:layout_marginLeft="@dimen/dp10"
+        app:layout_constraintStart_toEndOf="@+id/imgStar5"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

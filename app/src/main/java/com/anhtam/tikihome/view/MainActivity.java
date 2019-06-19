@@ -1,4 +1,4 @@
-package com.anhtam.tikihome;
+package com.anhtam.tikihome.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.anhtam.tikihome.R;
 
 public class MainActivity extends AppCompatActivity {
 

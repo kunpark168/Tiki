@@ -4,8 +4,11 @@
     <color name="colorPrimaryDark">#25517b</color>
     <color name="colorAccent">#1ba8ff</color>
     <color name="colorText">#787878</color>
-    <color name="colorBlack">#000000</color>
+    <color name="colorText2">#000000</color>
+    <color name="colorBlack">#1D1D1D</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorShadow">#5C6D6D6D</color>
     <color name="colorNotification">#fb8227</color>
+    <color name="colorFastDelivery">#26bc4e</color>
+    <color name="colorOptionColor">#f2f2f2</color>
 </resources>
