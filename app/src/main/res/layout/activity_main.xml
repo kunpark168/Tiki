@@ -1,18 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--Toolbar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp70">
+        <!--Icon back-->
+        <ImageView
+            android:id="@+id/imgBack"
+            android:src="@drawable/ic_back"
+            android:padding="@dimen/dp20"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="match_parent" />
+        <!--Cart-->
+        <ImageView
+            android:id="@+id/imgCart"
+            app:layout_constraintEnd_toStartOf="@+id/imgMore"
+            android:src="@drawable/ic_cart"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="match_parent" />
+
+        <!--Img search-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toStartOf="@id/imgCart"
+            app:layout_constraintStart_toEndOf="@+id/imgBack"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bg_search"
+            android:layout_marginRight="@dimen/dp15"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="@dimen/dp50">
+            <ImageView
+                android:layout_marginLeft="@dimen/dp10"
+                android:tint="@color/colorBlack"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_search"
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20" />
+            <EditText
+                android:maxLines="1"
+                android:focusable="false"
+                android:inputType="text"
+                android:paddingRight="@dimen/dp15"
+                android:hint="@string/hint_search"
+                android:paddingLeft="@dimen/dp40"
+                android:gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--TvNotification-->
+        <TextView
+            android:layout_marginTop="@dimen/dp10"
+            app:layout_constraintTop_toTopOf="@+id/imgCart"
+            app:layout_constraintStart_toStartOf="@+id/imgCart"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:text="0"
+            android:layout_marginLeft="@dimen/dp25"
+            android:background="@drawable/bg_notification"
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20" />
+
+        <!--Icon more-->
+        <ImageView
+            android:id="@+id/imgMore"
+            android:padding="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:src="@drawable/ic_more"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="match_parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
