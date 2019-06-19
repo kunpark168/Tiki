@@ -102,7 +102,7 @@
 
         <!--OptionColor-->
         <TextView
-            android:id="@+id/csOptionColor"
+            android:id="@+id/tvOptionColor"
             android:gravity="center"
             android:layout_marginTop="@dimen/dp5"
             android:textColor="@color/colorText2"
@@ -119,7 +119,7 @@
         <!--Rating bar-->
         <com.anhtam.tikihome.custom.RatingBarCustom
             android:layout_marginTop="@dimen/dp10"
-            app:layout_constraintTop_toBottomOf="@+id/csOptionColor"
+            app:layout_constraintTop_toBottomOf="@+id/tvOptionColor"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp20">

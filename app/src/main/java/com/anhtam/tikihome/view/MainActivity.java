@@ -2,20 +2,37 @@ package com.anhtam.tikihome.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.anhtam.tikihome.R;
+import com.anhtam.tikihome.base.BaseActivity;
+import com.anhtam.tikihome.model.Badge;
+import com.anhtam.tikihome.model.IProduct;
+import com.anhtam.tikihome.model.Product;
+import com.anhtam.tikihome.presenter.ProductAdapter;
+import com.anhtam.tikihome.presenter.ProductPresenter;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends BaseActivity implements IProduct.view {
 
     private ConstraintLayout csCheckBox;
     private boolean isTikiNow = true;
     private ImageView imgCheckBox;
     private TextView tvLocation;
+    private RecyclerView rvProduct;
+    private RecyclerView.LayoutManager layoutManager;
+    private ProductAdapter mAdapter;
+    private List<Product> arrProduct;
+    private ProductPresenter mPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +46,20 @@ public class MainActivity extends AppCompatActivity {
         csCheckBox = findViewById(R.id.csCheckBox);
         imgCheckBox = findViewById(R.id.imgCheckBox);
         tvLocation = findViewById(R.id.tvLocation);
+        rvProduct = findViewById(R.id.rvProduct);
+        mPresenter = new ProductPresenter(this);
     }
 
     private void initData (){
         String htmlString="<u>" + getResources().getString(R.string.address_example)+ "</u>";
         tvLocation.setText(Html.fromHtml(htmlString));
+
+        layoutManager = new LinearLayoutManager(this);
+        arrProduct = new ArrayList<>();
+        mAdapter = new ProductAdapter(this, arrProduct);
+        rvProduct.setLayoutManager(layoutManager);
+        rvProduct.setAdapter(mAdapter);
+        mPresenter.getListProduct();
     }
 
     private void initControls (){
@@ -43,5 +69,15 @@ public class MainActivity extends AppCompatActivity {
     private void onCheckTikiNow (){
         isTikiNow = !isTikiNow;
         imgCheckBox.setImageDrawable(isTikiNow ? getResources().getDrawable(R.drawable.ic_tick) : getResources().getDrawable(R.drawable.ic_untick));
+    }
+
+    @Override
+    public void onGetListProductSuccess(List<Product> arrProduct) {
+        mAdapter.setList(arrProduct);
+    }
+
+    @Override
+    public void onGetListProductFail(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

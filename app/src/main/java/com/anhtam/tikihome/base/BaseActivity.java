@@ -1,8 +1,9 @@
-package com.anhtam.tikihome;
+package com.anhtam.tikihome.base;
 
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import com.anhtam.tikihome.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
