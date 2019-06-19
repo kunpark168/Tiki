@@ -9,6 +9,7 @@
 
     <!--Toolbar-->
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/csHeader"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/colorAccent"
         android:layout_width="match_parent"
@@ -53,6 +54,7 @@
                 android:maxLines="1"
                 android:focusable="false"
                 android:inputType="text"
+                android:ellipsize="end"
                 android:paddingRight="@dimen/dp15"
                 android:hint="@string/hint_search"
                 android:paddingLeft="@dimen/dp40"
@@ -86,4 +88,151 @@
             android:layout_height="match_parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!--Sort-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/csSort"
+        app:layout_constraintTop_toBottomOf="@+id/csHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60">
+        <ImageView
+            android:id="@+id/imgSort"
+            app:layout_constraintStart_toStartOf="parent"
+            android:tint="@color/colorText"
+            android:src="@drawable/ic_order"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_width="@dimen/dp25"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tvSort"
+            android:gravity="center_vertical"
+            android:text="@string/sort"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/dp15"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintStart_toEndOf="@+id/imgSort"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tvSortType"
+            android:gravity="center_vertical"
+            android:text="Chọn lọc"
+            android:textSize="15sp"
+            android:layout_marginLeft="@dimen/dp10"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toEndOf="@+id/tvSort"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <View
+            android:background="@color/colorText"
+            android:layout_marginBottom="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp20"
+            app:layout_constraintEnd_toStartOf="@+id/imgFilter"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/imgFilter"
+            android:padding="@dimen/dp12"
+            android:layout_marginRight="@dimen/dp5"
+            app:layout_constraintEnd_toStartOf="@+id/tvFilter"
+            android:src="@drawable/ic_filter"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tvFilter"
+            android:layout_marginRight="@dimen/dp5"
+            app:layout_constraintEnd_toStartOf="@+id/tvNumberFilter"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"
+            android:text="@string/filter"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tvNumberFilter"
+            android:layout_marginRight="@dimen/dp20"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:text="(2)"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <View
+            android:alpha="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/colorText"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Location & Tiki now-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/csLocation"
+        app:layout_constraintTop_toBottomOf="@+id/csSort"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60">
+        <ImageView
+            android:id="@+id/imgLocation"
+            app:layout_constraintStart_toStartOf="parent"
+            android:tint="@color/colorText"
+            android:src="@drawable/ic_location"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_width="@dimen/dp25"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tvLocation"
+            app:layout_constraintEnd_toStartOf="@+id/vTiki"
+            app:layout_constraintStart_toEndOf="@+id/imgLocation"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"
+            android:maxLines="1"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp15"
+            android:text="@string/address_example"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <View
+            android:id="@+id/vTiki"
+            android:background="@color/colorText"
+            android:layout_marginBottom="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp15"
+            app:layout_constraintEnd_toStartOf="@+id/imgTikiNow"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/imgTikiNow"
+            app:layout_constraintEnd_toStartOf="@+id/csCheckBox"
+            android:src="@drawable/tiki_now"
+            android:layout_width="65dp"
+            android:layout_marginRight="@dimen/dp10"
+            android:paddingBottom="@dimen/dp5"
+            android:layout_height="match_parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/csCheckBox"
+            android:layout_width="@dimen/dp50"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imgCheckBox"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_tick"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="match_parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:alpha="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/colorText"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
