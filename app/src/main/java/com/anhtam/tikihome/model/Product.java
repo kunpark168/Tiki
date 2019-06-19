@@ -94,4 +94,48 @@ public class Product {
     public void setDiscountRate(Integer discountRate) {
         this.discountRate = discountRate;
     }
+
+    public boolean hasTikiNow (){
+        for (Badge badge : getBadges()) {
+            if (badge.isHasTikiNow())
+                return true;
+        }
+        return false;
+    }
+
+    public boolean hasFastDelivery (){
+        for (Badge badge : getBadges()) {
+            if (badge.isHasFastDelivery())
+                return true;
+        }
+        return false;
+    }
+
+    public boolean hasOptionColor (){
+        for (Badge badge : getBadges()) {
+            if (badge.isHasOptionColor())
+                return true;
+        }
+        return false;
+    }
+
+    public boolean hasDiscount (){
+        return getDiscountRate() > 0;
+    }
+
+    public String getTextFastDelivery (){
+        for (Badge badge : getBadges()) {
+            if (badge.getDeliveryText() != null)
+                return badge.getDeliveryText();
+        }
+        return "";
+    }
+
+    public String getNumberFastDelivery (){
+        for (Badge badge : getBadges()){
+            if (badge.getDeliveryNumber() != null)
+                return badge.getDeliveryNumber();
+        }
+        return "";
+    }
 }

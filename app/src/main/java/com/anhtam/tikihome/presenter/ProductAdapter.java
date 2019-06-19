@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.anhtam.tikihome.R;
 import com.anhtam.tikihome.model.Product;
+import com.anhtam.tikihome.utils.Strings;
 
 import java.util.List;
 
@@ -35,11 +36,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        if (products == null || products.get(position) != null)
+        if (products == null || products.get(position) == null)
             return;
         Product product = products.get(position);
-
         holder.tvDescription.setText(product.getName());
+        holder.imgTikiNow.setVisibility(product.hasTikiNow() ? View.VISIBLE : View.INVISIBLE);
+        holder.csFastDelivery.setVisibility(product.hasFastDelivery() ? View.VISIBLE : View.GONE);
+        holder.tvDiscount.setVisibility(product.hasDiscount() ? View.VISIBLE : View.GONE);
+        holder.tvOptionColor.setVisibility(product.hasOptionColor() ? View.VISIBLE : View.GONE);
+        holder.tvDiscount.setText("-" +product.getDiscountRate() + "%");
+
+        if (product.hasFastDelivery()){
+            holder.tvOptionDevilery.setText(product.getTextFastDelivery());
+            holder.tvNumberDevilvery.setText(product.getNumberFastDelivery());
+        }
+
+        holder.tvPrice.setText(Strings.moneyFormat(String.valueOf(product.getPrice())) + " đ");
 
     }
 
@@ -72,6 +84,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             tvNumberDevilvery = view.findViewById(R.id.tvNumberDevilvery);
             tvOptionDevilery = view.findViewById(R.id.tvOptionDevilery);
             tvOptionColor = view.findViewById(R.id.tvOptionColor);
+            tvPrice = view.findViewById(R.id.tvPrice);
         }
     }
 }

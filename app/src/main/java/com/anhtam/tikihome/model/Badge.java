@@ -1,5 +1,6 @@
 package com.anhtam.tikihome.model;
 
+import com.anhtam.tikihome.base.Constant;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -23,7 +24,7 @@ public class Badge {
     }
 
     public String getText() {
-        return text;
+        return text != null ? text : "";
     }
 
     public void setText(String text) {
@@ -31,10 +32,30 @@ public class Badge {
     }
 
     public String getOption() {
-        return option;
+        return option != null ? option : "";
     }
 
     public void setOption(String option) {
         this.option = option;
+    }
+
+    public boolean isHasTikiNow (){
+        return code != null && code.equals(Constant.TIKI_NOW);
+    }
+
+    public boolean isHasFastDelivery (){
+        return code != null && code.equals(Constant.FAST_DELIVERY);
+    }
+
+    public boolean isHasOptionColor (){
+        return code != null && code.equals(Constant.OPTION_COLOR);
+    }
+
+    public String getDeliveryText (){
+        return isHasFastDelivery() ? getText() : null;
+    }
+
+    public String getDeliveryNumber (){
+        return isHasFastDelivery() ? getOption() : null;
     }
 }

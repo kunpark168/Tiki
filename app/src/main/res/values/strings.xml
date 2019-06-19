@@ -5,4 +5,5 @@
     <string name="filter">Lọc</string>
     <string name="title_activity_base">BaseActivity</string>
     <string name="address_example">488/17/4 Le Trong Tan, Phuong Tay Thanh, Quan Tan Phu</string>
+    <string name="option_color">Nhiều màu</string>
 </resources>

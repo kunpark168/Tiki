@@ -25,17 +25,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:src="@drawable/tiki_now"
-            android:layout_width="65dp"
+            android:layout_width="70dp"
+            android:visibility="invisible"
             android:layout_marginRight="@dimen/dp10"
             android:paddingBottom="@dimen/dp5"
-            android:layout_height="@dimen/dp20" />
+            android:layout_height="@dimen/dp25" />
         <TextView
             android:id="@+id/tvDescription"
             app:layout_constraintTop_toBottomOf="@+id/imgTikiNow"
             android:maxLines="2"
             android:textColor="@color/colorText2"
-            android:textSize="16sp"
-            android:text="Điện Thoại Nokia 230 Dual SIM - Hàng Chính Hãng"
+            android:textSize="15sp"
             android:ellipsize="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -44,19 +44,17 @@
             app:layout_constraintTop_toBottomOf="@+id/tvDescription"
             android:maxLines="1"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:text="1.290.000 d"
             android:ellipsize="end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/tvDiscount"
-            android:text="-19%"
             android:textColor="@color/colorText2"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_marginBottom="@dimen/dp10"
             app:layout_constraintTop_toTopOf="@+id/tvPrice"
@@ -70,6 +68,7 @@
             android:id="@+id/csFastDelivery"
             app:layout_constraintTop_toBottomOf="@+id/tvDiscount"
             android:layout_width="match_parent"
+            android:visibility="visible"
             android:layout_marginTop="@dimen/dp5"
             android:layout_height="@dimen/dp30">
             <ImageView
@@ -80,21 +79,19 @@
                 android:layout_height="match_parent" />
             <TextView
                 android:id="@+id/tvOptionDevilery"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imgFast"
                 android:textColor="@color/colorFastDelivery"
-                android:text="Giao hàng nhanh"
                 android:layout_marginLeft="@dimen/dp5"
                 android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <TextView
                 android:id="@+id/tvNumberDevilvery"
-                android:text="2h"
                 android:textColor="@color/colorFastDelivery"
                 android:gravity="center_vertical"
                 android:layout_marginLeft="@dimen/dp5"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@id/tvOptionDevilery"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
@@ -104,14 +101,16 @@
         <TextView
             android:id="@+id/tvOptionColor"
             android:gravity="center"
+            android:visibility="gone"
             android:layout_marginTop="@dimen/dp5"
             android:textColor="@color/colorText2"
             android:paddingTop="@dimen/dp5"
             android:paddingBottom="@dimen/dp5"
             android:paddingRight="@dimen/dp10"
             android:paddingLeft="@dimen/dp10"
+            app:layout_goneMarginTop="@dimen/dp10"
             android:background="@drawable/bg_option_color"
-            android:text="Nhieu mau"
+            android:text="@string/option_color"
             app:layout_constraintTop_toBottomOf="@+id/csFastDelivery"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"

@@ -33,6 +33,7 @@ public class MainActivity extends BaseActivity implements IProduct.view {
     private ProductAdapter mAdapter;
     private List<Product> arrProduct;
     private ProductPresenter mPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,15 +70,29 @@ public class MainActivity extends BaseActivity implements IProduct.view {
     private void onCheckTikiNow (){
         isTikiNow = !isTikiNow;
         imgCheckBox.setImageDrawable(isTikiNow ? getResources().getDrawable(R.drawable.ic_tick) : getResources().getDrawable(R.drawable.ic_untick));
+        if (mAdapter != null)
+            mAdapter.setList(getListProductSorted(arrProduct));
     }
 
     @Override
     public void onGetListProductSuccess(List<Product> arrProduct) {
-        mAdapter.setList(arrProduct);
+        this.arrProduct = arrProduct;
+        mAdapter.setList(getListProductSorted(arrProduct));
     }
 
     @Override
     public void onGetListProductFail(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private List<Product> getListProductSorted (List<Product> arrProduct){
+        List<Product> products = new ArrayList<>();
+        for (Product product : arrProduct){
+            if (isTikiNow && product.hasTikiNow())
+                products.add(product);
+            else if (!isTikiNow && !product.hasTikiNow())
+                products.add(product);
+        }
+        return products;
     }
 }
