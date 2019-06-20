@@ -10,7 +10,6 @@
         android:id="@+id/imgProduct"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/img_example"
         android:layout_width="@dimen/dp170"
         android:layout_height="@dimen/dp220" />
 
@@ -68,7 +67,7 @@
             android:id="@+id/csFastDelivery"
             app:layout_constraintTop_toBottomOf="@+id/tvDiscount"
             android:layout_width="match_parent"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_marginTop="@dimen/dp5"
             android:layout_height="@dimen/dp30">
             <ImageView
@@ -117,12 +116,25 @@
             android:layout_height="wrap_content" />
         <!--Rating bar-->
         <com.anhtam.tikihome.custom.RatingBarCustom
+            android:id="@+id/csRating"
             android:layout_marginTop="@dimen/dp10"
             app:layout_constraintTop_toBottomOf="@+id/tvOptionColor"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/dp20">
+            android:layout_height="@dimen/dp30">
         </com.anhtam.tikihome.custom.RatingBarCustom>
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:gravity="top"
+            android:textSize="10sp"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/colorText2"
+            app:layout_constraintTop_toTopOf="@id/csRating"
+            app:layout_constraintBottom_toBottomOf="@id/csRating"
+            app:layout_constraintStart_toEndOf="@id/csRating"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -12,8 +12,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.anhtam.tikihome.R;
+import com.anhtam.tikihome.custom.RatingBarCustom;
 import com.anhtam.tikihome.model.Product;
 import com.anhtam.tikihome.utils.Strings;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -52,6 +54,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         }
 
         holder.tvPrice.setText(Strings.moneyFormat(String.valueOf(product.getPrice())) + " đ");
+        Glide.with(mContext).load(product.getThumbnailUrl()).into(holder.imgProduct);
+        holder.tvRating.setText("(" + product.getReviewCount() + ")");
+        holder.csRating.init(product.getRatingAverage());
 
     }
 
@@ -68,9 +73,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public class ProductViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView imgTikiNow;
-        private TextView tvDescription, tvPrice, tvDiscount;
+        private TextView tvDescription, tvPrice, tvDiscount, tvRating;
         private TextView tvOptionDevilery, tvNumberDevilvery, tvOptionColor;
         private ConstraintLayout csFastDelivery;
+        private ImageView imgProduct;
+        private RatingBarCustom csRating;
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             initView (itemView);
@@ -85,6 +92,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             tvOptionDevilery = view.findViewById(R.id.tvOptionDevilery);
             tvOptionColor = view.findViewById(R.id.tvOptionColor);
             tvPrice = view.findViewById(R.id.tvPrice);
+            imgProduct = view.findViewById(R.id.imgProduct);
+            csRating = view.findViewById(R.id.csRating);
+            tvRating = view.findViewById(R.id.tvRating);
         }
     }
 }

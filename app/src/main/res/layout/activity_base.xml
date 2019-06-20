@@ -5,5 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".base.BaseActivity">
+    <TextView
+        android:id="@+id/current_address"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
